@@ -10,7 +10,7 @@ const GMAE_COLS = 10;
 console.log(playground)
 
 //variables
-let score = 0;
+let score = 0;2
 let duration = 500;
 let downInterval;
 let tempMovingItem;
