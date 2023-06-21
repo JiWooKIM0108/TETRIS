@@ -4,6 +4,7 @@ import BLOCKS from "./blocks.js";
 const playground = document.querySelector(".playground > ul"); //- ulを呼び出す(選択)
 const gameText = document.querySelector(".game-text");
 const scoreDisplay = document.querySelector(".score");
+const restartButton = document.querySelector(".game-text > button");
 
 
 //Setting 
@@ -57,12 +58,12 @@ function renderBlocks(moveType = ""){       //ブロック作成機能
             target.classList.add(type, "moving") //ブロックにクラスを与える
         } else {
             tempMovingItem = { ...movingItem } //範囲外に出たとき元に戻す
-            if(moveType ==="retry"){
+            if(moveType ==="retry"){           //ゲーム終了機能
                 clearInterval(downInterval);
                 showGameoverText()
             }
             setTimeout(() => {
-                renderBlocks('retry')
+                renderBlocks('retry')       
                 if(moveType === "top"){
                     seizBlock();                
                 }
@@ -98,6 +99,8 @@ function seizBlock(){       //ブロックが一番下まで降りた時に固�
                 if(matched){
                     child.remove();
                     prependNewLine()    //一番上の１段を新たに追加
+                    score++             //スコアが追加する
+                    scoreDisplay.innerText = score;
                 }
         })
 
@@ -159,4 +162,10 @@ document.addEventListener("keydown", e=> {      //キ方向キーを押すとTOP
                 default:
                     break;
     }
+})
+
+restartButton.addEventListener("click", ()=>{   //reStartする機能
+    playground.innerHTML = "";
+    gameText.style.display = "none"
+    init()
 })
