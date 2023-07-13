@@ -8,7 +8,7 @@ const restartButton = document.querySelector(".game-text > button");
 
 
 //Setting 
-const GAME_ROWS = 20; //d
+const GAME_ROWS = 20; 
 const GMAE_COLS = 10;
 
 //variables
