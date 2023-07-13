@@ -12,7 +12,7 @@ const GAME_ROWS = 20;
 const GMAE_COLS = 10;
 
 //variables
-let score = 0;      //点数
+let score = 0;      //点数 dd
 let duration = 500; //ブロックが落下する時間
 let downInterval;
 let tempMovingItem; //movingItemを実行する前に保管する変数
